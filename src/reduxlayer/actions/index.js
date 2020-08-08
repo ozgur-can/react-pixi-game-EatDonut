@@ -1,21 +1,23 @@
-export const throwChar = (position) => ({
+export const throwChar = (characterPosition, droppedPosition) => ({
   type: "THROW_CHARACTER",
-  droppedPosition: {
-    x: position.x,
-    y: position.y,
-  },
+  characterPosition: characterPosition,
+  droppedPosition: droppedPosition,
 });
 
 export const stopChar = () => ({
   type: "STOP_CHARACTER",
 });
 
-export const moveChar = (position) => ({
+export const moveChar = (iteration) => ({
   type: "MOVE_CHAR",
-  position: position,
+  iteration: iteration,
 });
 
 export const updateChar = (data) => ({
   type: "UPDATE",
   data: data,
+});
+
+export const changeTargetPos = () => ({
+  type: "CHANGE_TARGET",
 });

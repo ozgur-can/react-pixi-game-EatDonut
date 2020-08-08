@@ -16,7 +16,6 @@ export const gameStatFontStyle = {
 
 export const game = {
   score: 0,
-  turn: 0,
   gameOver: false,
 };
 
@@ -28,6 +27,8 @@ export const character = {
   scale: 1.375,
   rotation: 1,
   health: 100,
+  isMove: false,
+  distanceDropped: undefined,
 };
 
 export const target = {
@@ -42,11 +43,20 @@ export const target = {
   health: 100,
 };
 
-export const distance = (char, target) => {
+export const randomlyXY = () => {
+  const position = {
+    x: Math.floor(Math.random() * 350 + 100),
+    y: Math.floor(Math.random() * 350 + 100),
+  };
+  return position;
+};
+
+export const distance = (charPosition, droppedPosition) => {
   return parseFloat(
-    Math.sqrt(
-      Math.pow(char.position.x - target.position.x, 2) +
-        Math.pow(char.position.y - target.position.y, 2)
-    ).toFixed(2)
+    Math.pow(
+      Math.pow(charPosition.x - droppedPosition.x, 2) +
+        Math.pow(charPosition.y - droppedPosition.y, 2),
+      1 / 4
+    ).toFixed(0)
   );
 };

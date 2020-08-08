@@ -1,19 +1,31 @@
-import React, { useEffect } from "react";
-import { Sprite, Text } from "@inlet/react-pixi";
+import React, { useRef } from "react";
+import { Sprite, Text, useTick } from "@inlet/react-pixi";
 import { useDispatch, useSelector } from "react-redux";
 import { charNameFontStyle } from "../utils/helpers";
-import { stopChar, moveChar, throwChar } from "../reduxlayer/actions";
+import { stopChar, throwChar, moveChar } from "../reduxlayer/actions";
 
-const Character = (props) => {
-  const { character, dirX, dirY } = useSelector((state) => state);
+const Character = () => {
+  const { character } = useSelector((state) => state);
   const dispatch = useDispatch();
+  const iter = useRef(0);
 
-  useEffect(() => {
-    props.app.ticker.add(tick);
-    return () => props.app.ticker.remove(tick);
-  }, [props.app.ticker, dirX, dirY]);
+  const mouseUpThrow = (event) => {
+    // get mouse up position
+    const droppedPosition = {
+      x: event.data.global.x,
+      y: event.data.global.y,
+    };
 
-  const tick = () => {};
+    dispatch(throwChar(character.position, droppedPosition));
+  };
+
+  useTick((delta) => {
+    const i = (iter.current += 0.05 * delta);
+
+    // move character dispatch
+    if (character.isMove && Math.ceil(i) <= character.distanceDropped)
+      dispatch(moveChar(i));
+  });
 
   return (
     <React.Fragment>
@@ -33,14 +45,8 @@ const Character = (props) => {
         interactive={true}
         cursor={"grab"}
         click={() => dispatch(stopChar())}
-        mouseupoutside={(event) => {
-          // send new positions of the character
-          const droppedPosition = {
-            x: event.data.global.x,
-            y: event.data.global.y,
-          };
-          dispatch(moveChar(droppedPosition));
-        }}
+        mouseupoutside={(event) => mouseUpThrow(event)}
+        {...character}
       />
     </React.Fragment>
   );

@@ -16,12 +16,6 @@ const GameStats = () => {
         y={20}
       />
       <Text
-        text={`turn: ${game.turn}`}
-        style={gameStatFontStyle}
-        x={20}
-        y={50}
-      />
-      <Text
         text={`health: ${character.health}`}
         style={gameStatFontStyle}
         x={20}

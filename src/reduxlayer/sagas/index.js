@@ -9,13 +9,14 @@ function* fetchHits(action) {
     const character = yield select(getCharacter);
     const target = yield select(getTarget);
 
-    if (distance(character, target) > 0 && distance(character, target) < 10)
+    // if character is next to target
+    if (distance(character, target) > 0 && distance(character, target) < 5)
       yield put({
         type: "HIT_SUCCESS",
         payload: "foo",
       });
     else {
-      throw new Error("message");
+      throw new Error("Could not hit target");
     }
   } catch (e) {
     yield put({

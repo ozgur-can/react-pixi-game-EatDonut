@@ -1,23 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Sprite, Text } from "@inlet/react-pixi";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { charNameFontStyle } from "../utils/helpers";
+import { changeTargetPos } from "../reduxlayer/actions";
 
-const Target = (props) => {
+const Target = () => {
   const target = useSelector((state) => state.target);
-  // const [pos, setPos] = useState(target.position.x);
-
-  useEffect(() => {
-    props.app.ticker.add(tick);
-
-    return () => {
-      props.app.ticker.remove(tick);
-    };
-  }, [props.app.ticker]);
-
-  const tick = (delta) => {
-    // setPos((pos) => pos - 0.1);
-  };
+  const dispatch = useDispatch();
 
   return (
     <React.Fragment>
@@ -36,6 +25,7 @@ const Target = (props) => {
         buttonMode={true}
         interactive={true}
         cursor={"crosshair"}
+        click={() => dispatch(changeTargetPos())}
       />
     </React.Fragment>
   );

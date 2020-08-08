@@ -1,29 +1,46 @@
-import { character, target, game } from "../../utils/helpers";
-const initialState = { character, target, game, newC: null };
+import {
+  character,
+  target,
+  game,
+  distance,
+  randomlyXY,
+} from "../../utils/helpers";
+const initialState = {
+  character,
+  target,
+  game,
+  newC: null,
+};
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case "THROW_CHARACTER":
       return {
         ...state,
-        dirX:
-          state.character.position.x - action.droppedPosition.x > 0 ? 1 : -1,
-        dirY:
-          state.character.position.y - action.droppedPosition.y > 0 ? 1 : -1,
+        character: {
+          ...character,
+          isMove: true,
+          distanceDropped: distance(
+            action.characterPosition,
+            action.droppedPosition
+          ),
+        },
       };
     case "STOP_CHARACTER":
       return {
         ...state,
-        dirX: undefined,
-        dirY: undefined,
-        character: { ...character, position: { x: 50, y: 50 } },
+        character: { ...character, isMove: false },
       };
     case "MOVE_CHAR":
       return {
         ...state,
         character: {
-          ...character,
-          position: action.position,
+          ...state.character,
+          position: {
+            x: character.position.x + Math.sin(action.iteration) * 20,
+            y: character.position.y + Math.sin(action.iteration / 1.5) * 20,
+          },
+          rotation: (Math.sin(action.iteration) * Math.PI) / 3,
         },
       };
 
@@ -31,6 +48,15 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         newC: action.data,
+      };
+
+    case "CHANGE_TARGET":
+      return {
+        ...state,
+        target: {
+          ...target,
+          position: randomlyXY(),
+        },
       };
 
     default:
