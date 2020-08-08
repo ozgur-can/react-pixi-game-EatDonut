@@ -1,5 +1,5 @@
-import { character, target } from "../../utils/helpers";
-const initialState = { character, target, score: 0, newC: null };
+import { character, target, game } from "../../utils/helpers";
+const initialState = { character, target, game, newC: null };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {

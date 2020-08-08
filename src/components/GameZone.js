@@ -1,16 +1,13 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { Text } from "@inlet/react-pixi";
 import Character from "./Character";
 import Target from "./Target";
 import DummyEnemy from "./DummyEnemy";
+import GameStats from "./GameStats";
 
 const GameZone = (props) => {
-  const score = useSelector((state) => state.score);
-
   return (
     <React.Fragment>
-      <Text text={`Score: ${score}`} x={20} y={20} />
+      <GameStats />
       <Character app={props.app} />
       <Target app={props.app} />
       <DummyEnemy />

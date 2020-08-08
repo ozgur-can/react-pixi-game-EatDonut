@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Sprite, Text } from "@inlet/react-pixi";
 import { useSelector } from "react-redux";
-import { charNameStyle } from "../utils/helpers";
+import { charNameFontStyle } from "../utils/helpers";
 
 const Target = (props) => {
   const target = useSelector((state) => state.target);
@@ -26,7 +26,7 @@ const Target = (props) => {
         anchor={0.5}
         x={target.position.x}
         y={target.position.y - 30}
-        style={charNameStyle}
+        style={charNameFontStyle}
       />
       <Sprite
         image={target.image}
