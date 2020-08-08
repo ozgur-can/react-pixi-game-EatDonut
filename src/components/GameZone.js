@@ -1,6 +1,6 @@
 import React from "react";
 import Character from "./Character";
-import Target from "./Target";
+import Donut from "./Donut";
 import GameStats from "./GameStats";
 
 const GameZone = (props) => {
@@ -8,7 +8,7 @@ const GameZone = (props) => {
     <React.Fragment>
       <GameStats />
       <Character app={props.app} />
-      <Target app={props.app} />
+      <Donut app={props.app} />
     </React.Fragment>
   );
 };

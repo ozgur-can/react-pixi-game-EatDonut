@@ -1,13 +1,13 @@
 import {
   character,
-  target,
+  donut,
   game,
   distance,
   randomlyXY,
 } from "../../utils/helpers";
 const initialState = {
   character,
-  target,
+  donut,
   game,
 };
 
@@ -17,7 +17,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         character: {
-          ...character,
+          ...state.character,
           isMove: true,
           distanceDropped: distance(
             action.characterPosition,
@@ -29,7 +29,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         character: {
-          ...character,
+          ...state.character,
           isMove: false,
           distanceDropped: undefined,
         },
@@ -41,9 +41,10 @@ const reducer = (state = initialState, action) => {
           ...state,
           character: {
             ...state.character,
+            // TODO: use distanceDropped instead constant values
             position: {
-              x: character.position.x + Math.sin(action.iteration) * 20,
-              y: character.position.y + Math.sin(action.iteration / 1.5) * 20,
+              x: character.position.x + Math.sin(action.iteration) * 150,
+              y: character.position.y + Math.sin(action.iteration / 1.5) * 150,
             },
             rotation: (Math.sin(action.iteration) * Math.PI) / 3,
           },
@@ -59,11 +60,16 @@ const reducer = (state = initialState, action) => {
     case "HIT_SUCCESS":
       return {
         ...state,
-        target: {
-          ...state.target,
+        donut: {
+          ...state.donut,
           position: randomlyXY(),
         },
         game: { ...state.game, score: state.game.score + 10 },
+        character: {
+          ...state.character,
+          isMove: false,
+          distanceDropped: undefined,
+        },
       };
 
     default:

@@ -10,7 +10,7 @@ function* fetchHits(action) {
     const target = yield select(getTarget);
 
     // if character is next to target
-    if (distance(character.position, target.position) < 20) {
+    if (distance(character.position, target.position) < 7) {
       yield put({
         type: "HIT_SUCCESS",
         payload: "foo",

@@ -3,22 +3,22 @@ import { Sprite, Text } from "@inlet/react-pixi";
 import { useSelector } from "react-redux";
 import { charNameFontStyle } from "../utils/helpers";
 
-const Target = () => {
-  const target = useSelector((state) => state.target);
+const Donut = () => {
+  const donut = useSelector((state) => state.donut);
 
   return (
     <React.Fragment>
       <Text
-        text={target.name}
+        text={donut.name}
         anchor={0.5}
-        x={target.position.x}
-        y={target.position.y - 30}
+        x={donut.position.x}
+        y={donut.position.y - 30}
         style={charNameFontStyle}
       />
       <Sprite
-        image={target.image}
-        scale={[target.scale, target.scale]}
-        position={{ x: target.position.x, y: target.position.y }}
+        image={donut.image}
+        scale={[donut.scale, donut.scale]}
+        position={{ x: donut.position.x, y: donut.position.y }}
         anchor={[0.5, 0.5]}
         buttonMode={true}
         interactive={true}
@@ -28,4 +28,4 @@ const Target = () => {
   );
 };
 
-export default Target;
+export default Donut;

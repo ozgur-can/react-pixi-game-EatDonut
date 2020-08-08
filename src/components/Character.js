@@ -22,10 +22,11 @@ const Character = () => {
   useTick((delta) => {
     let i = (iter.current += 0.05 * delta);
 
-    // move character dispatch
+    // move character dispatch after throw char
     if (character.isMove && i < character.distanceDropped)
       dispatch(moveChar(i));
 
+    // stop character dispatch when loop ends
     if (i >= character.distanceDropped) {
       iter.current = 0;
       dispatch(stopChar());
