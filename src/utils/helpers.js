@@ -10,7 +10,7 @@ export const charNameStyle = {
 
 export const character = {
   position: { x: 250, y: 250 },
-  name: "1",
+  name: "Character",
   image:
     "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/5410e450-ab51-4563-9fd1-3224dcc9eccc/dcrw7rt-1c6c342e-f841-4131-afd3-238deb18e2d1.gif",
   scale: 1.375,
@@ -18,11 +18,13 @@ export const character = {
 };
 
 export const target = {
-  position: { x: 300, y: 200 },
-  name: "2",
-  image:
-    "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/51019323-2b12-4132-b61d-e51c1257d90b/d6uyct1-74815e10-dd8e-4530-a2e5-215a6ac9a0d3.gif",
-  scale: 0.625,
+  position: {
+    x: Math.floor(Math.random() * 350 + 100),
+    y: Math.floor(Math.random() * 350 + 100),
+  },
+  name: "Target",
+  image: "https://art.pixilart.com/7f775abcc538d7d.png",
+  scale: 0.05,
   rotation: -1,
 };
 
