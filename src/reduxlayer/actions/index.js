@@ -12,12 +12,3 @@ export const moveChar = (iteration) => ({
   type: "MOVE_CHAR",
   iteration: iteration,
 });
-
-export const updateChar = (data) => ({
-  type: "UPDATE",
-  data: data,
-});
-
-export const changeTargetPos = () => ({
-  type: "CHANGE_TARGET",
-});

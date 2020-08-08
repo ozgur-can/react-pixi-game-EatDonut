@@ -10,12 +10,12 @@ function* fetchHits(action) {
     const target = yield select(getTarget);
 
     // if character is next to target
-    if (distance(character, target) > 0 && distance(character, target) < 5)
+    if (distance(character.position, target.position) < 20) {
       yield put({
         type: "HIT_SUCCESS",
         payload: "foo",
       });
-    else {
+    } else {
       throw new Error("Could not hit target");
     }
   } catch (e) {
@@ -29,7 +29,7 @@ function* fetchHits(action) {
 
 // redux actions and its trigger saga functions
 function* watchHits() {
-  yield takeLatest("THROW_CHAR", fetchHits);
+  yield takeLatest("MOVE_CHAR", fetchHits);
 }
 
 // used fork for executing functions at the same time

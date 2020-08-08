@@ -1,12 +1,10 @@
 import React from "react";
 import { Sprite, Text } from "@inlet/react-pixi";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { charNameFontStyle } from "../utils/helpers";
-import { changeTargetPos } from "../reduxlayer/actions";
 
 const Target = () => {
   const target = useSelector((state) => state.target);
-  const dispatch = useDispatch();
 
   return (
     <React.Fragment>
@@ -25,7 +23,6 @@ const Target = () => {
         buttonMode={true}
         interactive={true}
         cursor={"crosshair"}
-        click={() => dispatch(changeTargetPos())}
       />
     </React.Fragment>
   );

@@ -9,7 +9,6 @@ const initialState = {
   character,
   target,
   game,
-  newC: null,
 };
 
 const reducer = (state = initialState, action) => {
@@ -57,13 +56,14 @@ const reducer = (state = initialState, action) => {
         newC: action.data,
       };
 
-    case "CHANGE_TARGET":
+    case "HIT_SUCCESS":
       return {
         ...state,
         target: {
-          ...target,
+          ...state.target,
           position: randomlyXY(),
         },
+        game: { ...state.game, score: state.game.score + 10 },
       };
 
     default:

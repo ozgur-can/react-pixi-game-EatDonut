@@ -49,7 +49,6 @@ const Character = () => {
         buttonMode={true}
         interactive={true}
         cursor={"grab"}
-        click={() => dispatch(stopChar())}
         mouseupoutside={(event) => mouseUpThrow(event)}
         {...character}
       />
