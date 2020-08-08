@@ -19,7 +19,7 @@ const GameStats = () => {
         text={`health: ${character.health}`}
         style={gameStatFontStyle}
         x={20}
-        y={80}
+        y={50}
       />
     </React.Fragment>
   );

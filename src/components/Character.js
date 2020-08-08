@@ -20,18 +20,23 @@ const Character = () => {
   };
 
   useTick((delta) => {
-    const i = (iter.current += 0.05 * delta);
+    let i = (iter.current += 0.05 * delta);
 
     // move character dispatch
-    if (character.isMove && Math.ceil(i) <= character.distanceDropped)
+    if (character.isMove && i < character.distanceDropped)
       dispatch(moveChar(i));
+
+    if (i >= character.distanceDropped) {
+      iter.current = 0;
+      dispatch(stopChar());
+    }
   });
 
   return (
     <React.Fragment>
       <Text
         text={character.name}
-        anchor={0.5}
+        anchor={character.anchor}
         x={character.position.x}
         y={character.position.y - 30}
         style={charNameFontStyle}
@@ -40,7 +45,7 @@ const Character = () => {
         image={character.image}
         scale={[character.scale, character.scale]}
         position={{ x: character.position.x, y: character.position.y }}
-        anchor={[0.5, 0.5]}
+        anchor={character.anchor}
         buttonMode={true}
         interactive={true}
         cursor={"grab"}

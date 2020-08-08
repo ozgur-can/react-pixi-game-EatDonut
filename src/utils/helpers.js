@@ -21,6 +21,7 @@ export const game = {
 
 export const character = {
   position: { x: 250, y: 250 },
+  anchor: 0.5,
   name: "Character",
   image:
     "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/5410e450-ab51-4563-9fd1-3224dcc9eccc/dcrw7rt-1c6c342e-f841-4131-afd3-238deb18e2d1.gif",

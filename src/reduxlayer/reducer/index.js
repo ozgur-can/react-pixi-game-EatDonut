@@ -29,21 +29,28 @@ const reducer = (state = initialState, action) => {
     case "STOP_CHARACTER":
       return {
         ...state,
-        character: { ...character, isMove: false },
-      };
-    case "MOVE_CHAR":
-      return {
-        ...state,
         character: {
-          ...state.character,
-          position: {
-            x: character.position.x + Math.sin(action.iteration) * 20,
-            y: character.position.y + Math.sin(action.iteration / 1.5) * 20,
-          },
-          rotation: (Math.sin(action.iteration) * Math.PI) / 3,
+          ...character,
+          isMove: false,
+          distanceDropped: undefined,
         },
       };
 
+    case "MOVE_CHAR":
+      if (action.iteration < state.character.distanceDropped)
+        return {
+          ...state,
+          character: {
+            ...state.character,
+            position: {
+              x: character.position.x + Math.sin(action.iteration) * 20,
+              y: character.position.y + Math.sin(action.iteration / 1.5) * 20,
+            },
+            rotation: (Math.sin(action.iteration) * Math.PI) / 3,
+          },
+        };
+
+      break;
     case "UPDATE":
       return {
         ...state,
