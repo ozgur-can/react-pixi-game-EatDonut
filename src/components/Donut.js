@@ -19,10 +19,7 @@ const Donut = () => {
         image={donut.image}
         scale={[donut.scale, donut.scale]}
         position={{ x: donut.position.x, y: donut.position.y }}
-        anchor={[0.5, 0.5]}
-        buttonMode={true}
-        interactive={true}
-        cursor={"crosshair"}
+        anchor={donut.anchor}
       />
     </React.Fragment>
   );

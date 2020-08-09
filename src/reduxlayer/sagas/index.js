@@ -2,25 +2,25 @@ import { put, takeLatest, all, fork, select } from "redux-saga/effects";
 import { distance } from "../../utils/helpers";
 
 const getCharacter = (state) => state.character;
-const getTarget = (state) => state.target;
+const getDonut = (state) => state.donut;
 
 function* fetchHits(action) {
   try {
     const character = yield select(getCharacter);
-    const target = yield select(getTarget);
+    const donut = yield select(getDonut);
 
     // if character is next to target
-    if (distance(character.position, target.position) < 7) {
+    if (distance(character.position, donut.position) < 4) {
       yield put({
-        type: "HIT_SUCCESS",
+        type: "EAT_SUCCESS",
         payload: "foo",
       });
     } else {
-      throw new Error("Could not hit target");
+      throw new Error("Could not eat donut");
     }
   } catch (e) {
     yield put({
-      type: "HIT_FAILED",
+      type: "EAT_FAILED",
       message: e.message,
       payload: "baz",
     });

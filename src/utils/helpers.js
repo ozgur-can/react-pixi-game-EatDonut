@@ -20,7 +20,10 @@ export const game = {
 };
 
 export const character = {
-  position: { x: 250, y: 250 },
+  position: {
+    x: Math.floor(Math.random() * 350 + 100),
+    y: Math.floor(Math.random() * 350 + 100),
+  },
   anchor: 0.5,
   name: "Me",
   image:
@@ -37,6 +40,7 @@ export const donut = {
     x: Math.floor(Math.random() * 350 + 100),
     y: Math.floor(Math.random() * 350 + 100),
   },
+  anchor: 0.5,
   name: "Donut",
   image: "https://art.pixilart.com/7f775abcc538d7d.png",
   scale: 0.05,

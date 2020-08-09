@@ -1,14 +1,9 @@
-import {
-  character,
-  donut,
-  game,
-  distance,
-  randomlyXY,
-} from "../../utils/helpers";
+import * as helpers from "../../utils/export";
+
 const initialState = {
-  character,
-  donut,
-  game,
+  character: helpers.character,
+  donut: helpers.donut,
+  game: helpers.game,
 };
 
 const reducer = (state = initialState, action) => {
@@ -19,12 +14,13 @@ const reducer = (state = initialState, action) => {
         character: {
           ...state.character,
           isMove: true,
-          distanceDropped: distance(
+          distanceDropped: helpers.distance(
             action.characterPosition,
             action.droppedPosition
           ),
         },
       };
+
     case "STOP_CHARACTER":
       return {
         ...state,
@@ -41,28 +37,21 @@ const reducer = (state = initialState, action) => {
           ...state,
           character: {
             ...state.character,
-            // TODO: use distanceDropped instead constant values
             position: {
-              x: character.position.x + Math.sin(action.iteration) * 150,
-              y: character.position.y + Math.sin(action.iteration / 1.5) * 150,
+              x: state.character.position.x + Math.sin(action.iteration),
+              y: state.character.position.y + Math.sin(action.iteration),
             },
-            rotation: (Math.sin(action.iteration) * Math.PI) / 3,
+            rotation: (Math.sin(action.iteration) * Math.PI) / 30,
           },
         };
 
       break;
-    case "UPDATE":
-      return {
-        ...state,
-        newC: action.data,
-      };
-
-    case "HIT_SUCCESS":
+    case "EAT_SUCCESS":
       return {
         ...state,
         donut: {
           ...state.donut,
-          position: randomlyXY(),
+          position: helpers.randomlyXY(),
         },
         game: { ...state.game, score: state.game.score + 10 },
         character: {
