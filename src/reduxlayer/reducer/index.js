@@ -18,13 +18,13 @@ const reducer = (state = initialState, action) => {
           distanceDropped: helpers.distance(
             action.characterPosition,
             action.droppedPosition,
-            4
+            1 / 4.5
           ),
           dirX:
             action.characterPosition.x - action.droppedPosition.x > 0 ? 1 : -1,
           dirY:
             action.characterPosition.y - action.droppedPosition.y > 0 ? 1 : -1,
-          image: images.cat1,
+          image: images.catMove,
         },
       };
 
@@ -72,11 +72,19 @@ const reducer = (state = initialState, action) => {
           ...state.character,
           isMove: false,
           distanceDropped: undefined,
-          image: images.cat2,
+          image: images.catHappy,
           level:
             state.game.score > 0 && (state.game.score + 10) % 50 === 0
               ? state.character.level + 1
               : state.character.level,
+          scale:
+            state.game.score > 0 && (state.game.score + 10) % 50 === 0
+              ? (state.character.scale += 0.125)
+              : state.character.scale,
+          nameMarginTop:
+            state.game.score > 0 && (state.game.score + 10) % 50 === 0
+              ? state.character.nameMarginTop + 4
+              : state.character.nameMarginTop,
         },
       };
 

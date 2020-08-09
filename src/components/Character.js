@@ -39,7 +39,7 @@ const Character = () => {
         text={character.name}
         anchor={character.anchor}
         x={character.position.x}
-        y={character.position.y - 38}
+        y={character.position.y - character.nameMarginTop}
         style={charNameFontStyle}
       />
       <Sprite

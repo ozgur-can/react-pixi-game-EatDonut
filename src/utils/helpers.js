@@ -27,7 +27,8 @@ export const character = {
   },
   anchor: 0.5,
   name: "Cat",
-  image: images.cat1,
+  nameMarginTop: 38,
+  image: images.catMove,
   level: 1,
   scale: 1,
   isMove: false,
@@ -44,7 +45,7 @@ export const donut = {
   anchor: 0.5,
   name: "Donut",
   image: images.donut,
-  scale: 0.045,
+  scale: 0.041,
   rotation: -1,
   health: 100,
 };
