@@ -10,7 +10,7 @@ function* fetchHits(action) {
     const donut = yield select(getDonut);
 
     // if character is next to target
-    if (distance(character.position, donut.position) < 4) {
+    if (distance(character.position, donut.position, 1 / 4) < 6) {
       yield put({
         type: "EAT_SUCCESS",
         payload: "foo",

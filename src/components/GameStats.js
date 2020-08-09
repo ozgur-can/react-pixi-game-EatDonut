@@ -16,7 +16,7 @@ const GameStats = () => {
         y={20}
       />
       <Text
-        text={`health: ${character.health}`}
+        text={`cat level: ${character.level}`}
         style={gameStatFontStyle}
         x={20}
         y={50}

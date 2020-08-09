@@ -39,7 +39,7 @@ const Character = () => {
         text={character.name}
         anchor={character.anchor}
         x={character.position.x}
-        y={character.position.y - 30}
+        y={character.position.y - 38}
         style={charNameFontStyle}
       />
       <Sprite
@@ -50,6 +50,7 @@ const Character = () => {
         buttonMode={true}
         interactive={true}
         cursor={"grab"}
+        click={() => dispatch(stopChar())}
         mouseupoutside={(event) => mouseUpThrow(event)}
         {...character}
       />

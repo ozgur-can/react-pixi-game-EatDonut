@@ -1,3 +1,5 @@
+import * as images from "../images/export";
+
 export const charNameFontStyle = {
   align: "center",
   fontFamily: '"Source Sans Pro", Helvetica, sans-serif',
@@ -16,7 +18,6 @@ export const gameStatFontStyle = {
 
 export const game = {
   score: 0,
-  gameOver: false,
 };
 
 export const character = {
@@ -25,14 +26,14 @@ export const character = {
     y: Math.floor(Math.random() * 350 + 100),
   },
   anchor: 0.5,
-  name: "Me",
-  image:
-    "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/5410e450-ab51-4563-9fd1-3224dcc9eccc/dcrw7rt-1c6c342e-f841-4131-afd3-238deb18e2d1.gif",
-  scale: 1.375,
-  rotation: 1,
-  health: 100,
+  name: "Cat",
+  image: images.cat1,
+  level: 1,
+  scale: 1,
   isMove: false,
   distanceDropped: undefined,
+  dirX: null,
+  dirY: null,
 };
 
 export const donut = {
@@ -42,8 +43,8 @@ export const donut = {
   },
   anchor: 0.5,
   name: "Donut",
-  image: "https://art.pixilart.com/7f775abcc538d7d.png",
-  scale: 0.05,
+  image: images.donut,
+  scale: 0.045,
   rotation: -1,
   health: 100,
 };
@@ -56,12 +57,12 @@ export const randomlyXY = () => {
   return position;
 };
 
-export const distance = (charPosition, droppedPosition) => {
+export const distance = (charPosition, droppedPosition, pow) => {
   return parseFloat(
     Math.pow(
       Math.pow(charPosition.x - droppedPosition.x, 2) +
         Math.pow(charPosition.y - droppedPosition.y, 2),
-      1 / 4
+      pow
     ).toFixed(0)
   );
 };
