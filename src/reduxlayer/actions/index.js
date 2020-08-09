@@ -12,3 +12,7 @@ export const moveChar = (iteration) => ({
   type: "MOVE_CHAR",
   iteration: iteration,
 });
+
+export const startGame = () => ({
+  type: "START_GAME",
+});

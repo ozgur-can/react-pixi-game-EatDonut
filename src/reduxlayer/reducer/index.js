@@ -88,6 +88,12 @@ const reducer = (state = initialState, action) => {
         },
       };
 
+    case "START_GAME":
+      return {
+        ...state,
+        game: { ...state.game, isStart: true },
+      };
+
     default:
       return state;
   }

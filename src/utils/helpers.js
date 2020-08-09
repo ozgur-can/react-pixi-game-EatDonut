@@ -1,23 +1,16 @@
 import * as images from "../images/export";
 
-export const charNameFontStyle = {
-  align: "center",
-  fontFamily: '"Source Sans Pro", Helvetica, sans-serif',
-  fontSize: 16,
-  letterSpacing: 0.75,
-  fill: ["#f4f6ff"],
-};
-
-export const gameStatFontStyle = {
-  align: "center",
-  fontFamily: '"Source Sans Pro", Helvetica, sans-serif',
-  fontSize: 23,
-  letterSpacing: 1.25,
-  fill: ["#eeeeee", "#f3c623", "#b4f2e1"],
-};
-
+// initial in-game values
 export const game = {
   score: 0,
+  isStart: false,
+  moveToStart: false,
+};
+
+export const stageOptions = {
+  width: 500,
+  height: 500,
+  backgroundColor: 0xe16d51,
 };
 
 export const character = {
@@ -50,6 +43,33 @@ export const donut = {
   health: 100,
 };
 
+// font styles
+export const charNameFontStyle = {
+  align: "center",
+  fontFamily: '"Source Sans Pro", Helvetica, sans-serif',
+  fontSize: 16,
+  letterSpacing: 0.75,
+  fill: ["#f4f6ff"],
+};
+
+export const gameStatFontStyle = {
+  align: "center",
+  fontFamily: '"Source Sans Pro", Helvetica, sans-serif',
+  fontSize: 23,
+  letterSpacing: 1.25,
+  fill: ["#eeeeee", "#f3c623", "#b4f2e1"],
+};
+
+export const gameMenuFontStyle = {
+  align: "center",
+  fontFamily: '"Source Sans Pro", Helvetica, sans-serif',
+  fontSize: 27,
+  letterSpacing: 1.67,
+  fill: ["#f3e1e1", "#f7f7f7", "#f9c49a"],
+  position: { x: stageOptions.width / 4, y: stageOptions.height / 2.5 },
+};
+
+// functions
 export const randomlyXY = () => {
   const position = {
     x: Math.floor(Math.random() * 350 + 100),
