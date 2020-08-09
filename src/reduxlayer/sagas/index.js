@@ -9,11 +9,10 @@ function* fetchHits(action) {
     const character = yield select(getCharacter);
     const donut = yield select(getDonut);
 
-    // if character is next to target
+    // if character hit target
     if (distance(character.position, donut.position, 1 / 4) < 6) {
       yield put({
         type: "EAT_SUCCESS",
-        payload: "foo",
       });
     } else {
       throw new Error("Could not eat donut");
@@ -22,7 +21,6 @@ function* fetchHits(action) {
     yield put({
       type: "EAT_FAILED",
       message: e.message,
-      payload: "baz",
     });
   }
 }

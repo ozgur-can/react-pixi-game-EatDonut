@@ -1,3 +1,7 @@
+export const startGame = () => ({
+  type: "START_GAME",
+});
+
 export const throwChar = (characterPosition, droppedPosition) => ({
   type: "THROW_CHARACTER",
   characterPosition: characterPosition,
@@ -11,8 +15,4 @@ export const stopChar = () => ({
 export const moveChar = (iteration) => ({
   type: "MOVE_CHAR",
   iteration: iteration,
-});
-
-export const startGame = () => ({
-  type: "START_GAME",
 });
