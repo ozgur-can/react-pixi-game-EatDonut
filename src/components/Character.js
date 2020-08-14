@@ -51,7 +51,7 @@ const Character = () => {
         interactive={true}
         cursor={"grab"}
         click={() => dispatch(stopChar())}
-        mouseupoutside={(event) => mouseUpThrow(event)}
+        pointerupoutside={(event) => mouseUpThrow(event)}
         {...character}
       />
     </React.Fragment>

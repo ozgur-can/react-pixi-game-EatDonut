@@ -19,7 +19,7 @@ const GameMenu = (props) => {
   return (
     <React.Fragment>
       <Text
-        text={"Hold on cat to start!"}
+        text={"Click the cat to start!"}
         x={gameMenuFontStyle.position.x}
         y={gameMenuFontStyle.position.y}
         style={gameMenuFontStyle}
@@ -31,7 +31,7 @@ const GameMenu = (props) => {
         position={{ x: posX, y: character.position.y }}
         anchor={character.anchor}
         interactive={true}
-        mouseover={() => dispatch(startGame())}
+        pointertap={() => dispatch(startGame())}
       />
     </React.Fragment>
   );
