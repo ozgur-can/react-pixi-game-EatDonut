@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/react-pixi-game-EatDonut/precache-manifest.270a9e2c676f09ed3cd00a77c4fe0ac4.js"
+  "/react-pixi-game-EatDonut/precache-manifest.0b93405245436f499939a9db5ed4665d.js"
 );
 
 self.addEventListener('message', (event) => {
