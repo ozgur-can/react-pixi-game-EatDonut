@@ -14,7 +14,7 @@
     "redux-logger": "^3.0.6",
     "redux-saga": "^1.1.3"
   },
-  "homepage": "https://zgrcnltnk.github.io/react-pixi-game-EatDonut",
+  "homepage": "https://ozgurdevo.github.io/react-pixi-game-EatDonut",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
