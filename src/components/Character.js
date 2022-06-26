@@ -36,7 +36,7 @@ const Character = () => {
   return (
     <React.Fragment>
       <Text
-        text={character.name}
+        text={undefined}
         anchor={character.anchor}
         x={character.position.x}
         y={character.position.y - character.nameMarginTop}

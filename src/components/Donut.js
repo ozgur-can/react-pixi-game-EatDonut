@@ -9,7 +9,7 @@ const Donut = () => {
   return (
     <React.Fragment>
       <Text
-        text={donut.name}
+        text={undefined}
         anchor={0.5}
         x={donut.position.x}
         y={donut.position.y - 30}

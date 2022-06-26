@@ -64,7 +64,7 @@ export const gameStatFontStyle = {
 export const gameMenuFontStyle = {
   align: "center",
   fontFamily: '"Source Sans Pro", Helvetica, sans-serif',
-  fontSize: 27,
+  fontSize: 20,
   letterSpacing: 1.67,
   fill: ["#f3e1e1", "#f7f7f7", "#f9c49a"],
   position: { x: stageOptions.width / 4, y: stageOptions.height / 2.5 },
